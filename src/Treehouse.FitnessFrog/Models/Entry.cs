@@ -17,36 +17,45 @@ namespace Treehouse.FitnessFrog.Models
             Medium,
             High
         }
+		public enum FoodLevel2
+		{
+			Mild,
+			Medium,
+			Hot,
+			ExtraSpicy
+		}
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public Entry()
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public Entry()
         {
         }
 
-        /// <summary>
-        /// Constructor for easily creating entries.
-        /// </summary>
-        /// <param name="id">The ID for the entry.</param>
-        /// <param name="year">The year (1 through 9999) for the entry date.</param>
-        /// <param name="month">The month (1 through 12) for the entry month.</param>
-        /// <param name="day">The day (1 through the number of days for the month) for the entry day.</param>
-        /// <param name="activityType">The activity type for the entry.</param>
-        /// <param name="duration">The duration for the entry (in minutes).</param>
-        /// <param name="intensity">The intensity for the entry.</param>
-        /// <param name="exclude">Whether or not the entry should be excluded when calculating the total fitness activity.</param>
-        /// <param name="notes">The notes for the entry.</param>
-        public Entry(int id, int year, int month, int day, Activity.ActivityType activityType, 
-            double duration, IntensityLevel intensity = IntensityLevel.Medium,
-            bool exclude = false, string notes = null)
+		/// <summary>
+		/// Constructor for easily creating entries.
+		/// </summary>
+		/// <param name="id">The ID for the entry.</param>
+		/// <param name="year">The year (1 through 9999) for the entry date.</param>
+		/// <param name="month">The month (1 through 12) for the entry month.</param>
+		/// <param name="day">The day (1 through the number of days for the month) for the entry day.</param>
+		/// <param name="activityType">The activity type for the entry.</param>
+		/// <param name="duration">The duration for the entry (in minutes).</param>
+		/// <param name="intensity">The intensity for the entry.</param>
+		/// <param name="food">The food for the entry.</param>
+		/// <param name="exclude">Whether or not the entry should be excluded when calculating the total fitness activity.</param>
+		/// <param name="notes">The notes for the entry.</param>
+		public Entry(int id, int year, int month, int day, Activity.ActivityType activityType, 
+            double duration, IntensityLevel intensity = IntensityLevel.Medium, FoodLevel2 food = FoodLevel2.Hot,
+			bool exclude = false, string notes = null)
         {
             Id = id;
             Date = new DateTime(year, month, day);
             ActivityId = (int)activityType;
             Duration = duration;
             Intensity = intensity;
-            Exclude = exclude;
+			Food = food;
+			Exclude = exclude;
             Notes = notes;
         }
 
@@ -81,10 +90,15 @@ namespace Treehouse.FitnessFrog.Models
         /// </summary>
         public IntensityLevel Intensity { get; set; }
 
-        /// <summary>
-        /// Whether or not this entry should be excluded when calculating the total fitness activity.
-        /// </summary>
-        public bool Exclude { get; set; }
+		/// <summary>
+		/// The level of food level for the entry.
+		/// </summary>
+		public FoodLevel2 Food { get; set; }
+
+		/// <summary>
+		/// Whether or not this entry should be excluded when calculating the total fitness activity.
+		/// </summary>
+		public bool Exclude { get; set; }
 
         /// <summary>
         /// The notes for the entry.

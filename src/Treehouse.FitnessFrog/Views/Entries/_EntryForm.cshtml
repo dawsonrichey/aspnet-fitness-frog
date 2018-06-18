@@ -7,51 +7,74 @@
 
     <div class="row">
 
-        <div class="col-md-6">
+		<div class="col-md-6">
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Date, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
-            </div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Date, new { @class = "control-label" })
+				@Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control datepicker" })
+			</div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-                @Html.DropDownListFor(m => m.ActivityId, 
-                    (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
-            </div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
+				@Html.DropDownListFor(m => m.ActivityId,
+		   (SelectList)ViewBag.ActivitiesSelectListItems, "", new { @class = "form-control" })
+			</div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Duration, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
-            </div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Duration, new { @class = "control-label" })
+				@Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+			</div>
 
-            <div class="form-group">
-                @Html.LabelFor(m => m.Intensity, new { @class = "control-label" })
-                <div>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity,
-                            Entry.IntensityLevel.Low) @Entry.IntensityLevel.Low
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity,
-                            Entry.IntensityLevel.Medium) @Entry.IntensityLevel.Medium
-                    </label>
-                    <label class="radio-inline">
-                        @Html.RadioButtonFor(m => m.Intensity,
-                            Entry.IntensityLevel.High) @Entry.IntensityLevel.High
-                    </label>
-                </div>
-            </div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Intensity, new { @class = "control-label" })
+				<div>
+					<label class="radio-inline">
+						@Html.RadioButtonFor(m => m.Intensity,
+				   Entry.IntensityLevel.Low) @Entry.IntensityLevel.Low
+			</label>
+			<label class="radio-inline">
+				@Html.RadioButtonFor(m => m.Intensity,
+		   Entry.IntensityLevel.Medium) @Entry.IntensityLevel.Medium
+		</label>
+		<label class="radio-inline">
+			@Html.RadioButtonFor(m => m.Intensity,
+	   Entry.IntensityLevel.High) @Entry.IntensityLevel.High
+		</label>
+		</div>
+		</div>
 
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        @Html.CheckBoxFor(m => m.Exclude) @Html.DisplayNameFor(m => m.Exclude)
-                    </label>
-                </div>
-            </div>
 
-        </div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Food, new { @class = "control-label" })
+				<div>
+					<label class="radio-inline">
+						@Html.RadioButtonFor(m => m.Food,
+	   Entry.FoodLevel2.Mild) @Entry.FoodLevel2.Mild
+			</label>
+			<label class="radio-inline">
+				@Html.RadioButtonFor(m => m.Food,
+Entry.FoodLevel2.Medium) @Entry.FoodLevel2.Medium
+			</label>
+			<label class="radio-inline">
+				@Html.RadioButtonFor(m => m.Food,
+Entry.FoodLevel2.Hot) @Entry.FoodLevel2.Hot
+			</label>
+			<label class="radio-inline">
+				@Html.RadioButtonFor(m => m.Food,
+Entry.FoodLevel2.ExtraSpicy) @Entry.FoodLevel2.ExtraSpicy
+			</label>
+			</div>
+			</div>
+
+		<div class="form-group">
+			<div class="checkbox">
+				<label>
+					@Html.CheckBoxFor(m => m.Exclude) @Html.DisplayNameFor(m => m.Exclude)
+				</label>
+			</div>
+		</div>
+
+		</div>
 
         <div class="col-md-6">
 

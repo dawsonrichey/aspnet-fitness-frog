@@ -14,26 +14,49 @@
     </div>
 }
 
-<div class="stats">
-    <h2 class="stats-header h3">Minutes of Activity</h2>
-    <div class="stats-left">
-        <span class="stats-number">@ViewBag.AverageDailyActivity.ToString("n1")</span> daily average
-    </div>
-    <div class="stats-right">
-        <span class="stats-number">@ViewBag.TotalActivity.ToString("n1")</span> total
-    </div>
-</div>
+	<div class="stats">
+		<h2 class="stats-header h3">Minutes of Activity</h2>
+		<div class="stats-left">
+			<span class="stats-number">@ViewBag.AverageDailyActivity.ToString("n1")</span> daily average
+		</div>
+		<div class="stats-right">
+			<span class="stats-number">@ViewBag.TotalActivity.ToString("n1")</span> total
+		</div>
+		<div class="stats-right">
+			<p>@DateTime.Now</p>
+
+			@if (IsPost)
+	{
+		// Repeat the previous example, but use <text> tags.
+		<text>
+			The time is: <br /> @DateTime.Now
+			<br />
+			@DateTime.Now is the <em>current</em> time.
+		</text>
+}
+
+			@{
+		var minTemp = 75;
+		<text>It is the month of @DateTime.Now.ToString("MMMM"), and
+		it's a <em>great</em> day! <br /><p>
+			You can go swimming if it's at
+			least @minTemp degrees.
+		</p></text>
+			}
+		</div>
+	</div>
 
 <h3>@ViewBag.Title</h3>
 
 <table class="table">
-    <tr>
-        <th>Date</th>
-        <th>Activity</th>
-        <th>Duration</th>
-        <th class="hidden-xs">Intensity</th>
-        <th>&nbsp;</th>
-    </tr>
+	<tr>
+		<th>Date</th>
+		<th>Activity</th>
+		<th>Duration</th>
+		<th class="hidden-xs">Intensity</th>
+		<th class="hidden-xs">Food</th>
+		<th>&nbsp;</th>
+	</tr>
     @foreach (var entry in Model)
     {
         <tr>
